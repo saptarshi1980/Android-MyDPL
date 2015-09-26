@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MyDPLApp</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_listdemo">ListdemoActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_user_home">UserHome</string>
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="title_activity_consumption">Consumption</string>
+    <string name="title_activity_drawer">Drawer</string>
+</resources>

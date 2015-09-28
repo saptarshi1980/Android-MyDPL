@@ -10,4 +10,5 @@
     <string name="title_activity_dashboard">Dashboard</string>
     <string name="title_activity_consumption">Consumption</string>
     <string name="title_activity_drawer">Drawer</string>
+    <string name="title_activity_current_bill">CurrentBill</string>
 </resources>

@@ -1,7 +1,10 @@
 package com.example.dpl1.saptarshi;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +30,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         this.setTitle("DPL- Login");
+        checkInternet();
         consumerNo = (EditText) findViewById(R.id.editText);
         meterNo = (EditText) findViewById(R.id.editText2);
         buttonLogin = (Button) findViewById(R.id.button);
@@ -35,16 +39,22 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     }
 
+    private void checkInternet() {
+
+        if(!isNetworkAvailable()){
+            Toast.makeText(getApplicationContext(), "No Internet Connectivity, App will Exit!!!!", Toast.LENGTH_LONG).show();
+            Intent a = new Intent(Intent.ACTION_MAIN);
+            a.addCategory(Intent.CATEGORY_HOME);
+            a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(a);
+            finish();
+        }
+    }
+
 
     public void onClick(View v) {
         if(v == buttonLogin){
-            //registerUser();
-
-            //Intent intent = new Intent(getApplicationContext(), UserHome.class);
-            //intent.putExtra("name","saptarshi");
-            //startActivity(intent);
-
-            registerUser(consumerNo.getText().toString(),meterNo.getText().toString());
+             registerUser(consumerNo.getText().toString(),meterNo.getText().toString());
         }
     }
 
@@ -156,9 +166,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         }
 
         GetInformation ru = new GetInformation();
-        ru.execute(consumerNo,meterNo);
+        ru.execute(consumerNo, meterNo);
     }
-
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 
 
 }

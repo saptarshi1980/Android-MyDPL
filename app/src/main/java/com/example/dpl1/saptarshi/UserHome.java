@@ -14,6 +14,7 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener{
     ImageView iv1,iv2,iv3,iv4,iv5,iv6,iv7,iv8,iv9,iv10;
     TextView consumerName;
     String conNo;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,7 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.activity_user_home);
         this.setTitle("DPL- User Home");
         Bundle extras=getIntent().getExtras();
-        String name=extras.getString("name");
+        name=extras.getString("name");
         conNo=extras.getString("conNo");
         System.out.println("****************** CONSUMER DATA ******************************************");
         System.out.println("NAME-"+name);
@@ -30,6 +31,8 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener{
 
         iv1=(ImageView)findViewById(R.id.imageView3);
         iv1.setOnClickListener(this);
+        iv2=(ImageView)findViewById(R.id.imageView4);
+        iv2.setOnClickListener(this);
         consumerName=(TextView)findViewById(R.id.textView2);
         consumerName.setText(name);
 
@@ -69,6 +72,14 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener{
             intent.putExtra("conNo",conNo);
             startActivity(intent);
         }
+        if(v == iv2){
+            Intent intent = new Intent(getApplicationContext(),CurrentBill.class);
+            intent.putExtra("conNo",conNo);
+            intent.putExtra("conName",name);
+            startActivity(intent);
+        }
+
+
 
     }
 }

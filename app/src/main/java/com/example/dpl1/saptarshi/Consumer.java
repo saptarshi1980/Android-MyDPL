@@ -8,16 +8,44 @@ public class Consumer {
     private String consumerNo;
     private String consumerName;
     private String meterNo;
-    private String dueDate;
+    private String due1;
+    private String due2;
     private String amountDue;
+
+    public String getDue1() {
+        return due1;
+    }
+
+    public void setDue1(String due1) {
+        this.due1 = due1;
+    }
+
+    public String getDue2() {
+        return due2;
+    }
+
+    public void setDue2(String due2) {
+        this.due2 = due2;
+    }
+
     private String address;
     private String category;
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
     private String tariffType;
     private String phase;
     private String contractDemand;
     private String mulFactor;
     private String reference;
     private String partyCode;
+    private String unit;
 
     public String getAddress() {
         return address;
@@ -107,13 +135,7 @@ public class Consumer {
         this.meterNo = meterNo;
     }
 
-    public String getDueDate() {
-        return dueDate;
-    }
 
-    public void setDueDate(String dueDate) {
-        this.dueDate = dueDate;
-    }
 
     public String getAmountDue() {
         return amountDue;

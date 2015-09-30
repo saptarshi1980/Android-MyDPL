@@ -12,5 +12,6 @@
     <string name="title_activity_drawer">Drawer</string>
     <string name="title_activity_current_bill">CurrentBill</string>
     <string name="title_activity_tariff_view">TariffView</string>
+    <string name="title_activity_bill_history">BillHistory</string>
 
 </resources>

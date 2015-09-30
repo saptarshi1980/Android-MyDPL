@@ -20,18 +20,23 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
-        this.setTitle("DPL- User Home");
+
         Bundle extras=getIntent().getExtras();
         name=extras.getString("name");
         conNo=extras.getString("conNo");
+        this.setTitle("Welcome, "+name);
         iv1=(ImageView)findViewById(R.id.imageView3);
         iv1.setOnClickListener(this);
         iv2=(ImageView)findViewById(R.id.imageView4);
         iv2.setOnClickListener(this);
         iv3=(ImageView)findViewById(R.id.imageView9);
         iv3.setOnClickListener(this);
-        consumerName=(TextView)findViewById(R.id.textView2);
-        consumerName.setText(name);
+        iv4=(ImageView)findViewById(R.id.imageView7);
+        iv4.setOnClickListener(this);
+        iv5=(ImageView)findViewById(R.id.imageView5);
+        iv5.setOnClickListener(this);
+        //consumerName=(TextView)findViewById(R.id.textView2);
+        //consumerName.setText(name);
 
     }
     @Override
@@ -80,6 +85,19 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener{
             Intent intent = new Intent(getApplicationContext(),TariffView.class);
             intent.putExtra("conNo",conNo);
             intent.putExtra("conName",name);
+            startActivity(intent);
+        }
+        if(v == iv4){
+
+            Intent intent = new Intent(getApplicationContext(),Consumption.class);
+            intent.putExtra("conNo",conNo);
+            startActivity(intent);
+        }
+
+        if(v == iv5){
+
+            Intent intent = new Intent(getApplicationContext(),BillHistory.class);
+            intent.putExtra("conNo",conNo);
             startActivity(intent);
         }
 

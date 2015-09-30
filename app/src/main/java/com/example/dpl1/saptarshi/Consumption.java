@@ -4,25 +4,43 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.series.BarGraphSeries;
+import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 public class Consumption extends AppCompatActivity {
-
+    String name,conNo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consumption);
         GraphView graph = (GraphView) findViewById(R.id.graph);
-        BarGraphSeries<DataPoint> series = new BarGraphSeries<DataPoint>(new DataPoint[] {
-                new DataPoint(0, 600),
-                new DataPoint(1, 500),
-                new DataPoint(2, 400),
-                new DataPoint(3, 300),
-                new DataPoint(4, 200)
+        TextView tv=(TextView)findViewById(R.id.textView8);
+        Bundle extras=getIntent().getExtras();
+        conNo=extras.getString("conNo");
+        tv.setText("Consumption Pattern for Consumer No-"+conNo);
+        this.setTitle("Consumption Pattern");
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
+                new DataPoint(1, 600),
+                new DataPoint(2, 500),
+                new DataPoint(3, 700),
+                new DataPoint(4, 500),
+                new DataPoint(5, 900)
         });
+        StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
+        staticLabelsFormatter.setHorizontalLabels(new String[]{"JAN'15", "Feb'15", "March'15", "April'15", "June'15"});
+       // staticLabelsFormatter.setVerticalLabels(new String[] {"low", "middle", "high","ABC","CDE","fgh"});
+       graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+        //graph.setTitle("Consumption Pattern for Consumer No:########");
+        //graph.getGridLabelRenderer().setVerticalAxisTitleTextSize(30);
+        //graph.getGridLabelRenderer().setVerticalAxisTitle("Units Consumed");
+        //graph.getGridLabelRenderer().setHorizontalAxisTitle("Consumption Month");
+        //graph.getGridLabelRenderer().setGridColor("");
+        //series.setSpacing(2);
+
         graph.addSeries(series);
     }
 

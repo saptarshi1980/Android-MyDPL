@@ -145,7 +145,7 @@
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Consumer Dash Board"
+        android:text="Consumer Profile"
         android:id="@+id/textView4"
         android:layout_below="@+id/imageView14"
         android:layout_centerHorizontal="true" />

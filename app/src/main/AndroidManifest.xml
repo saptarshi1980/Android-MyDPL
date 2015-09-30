@@ -51,6 +51,10 @@
             android:name=".TariffView"
             android:label="@string/title_activity_tariff_view" >
         </activity>
+        <activity
+            android:name=".BillHistory"
+            android:label="@string/title_activity_bill_history" >
+        </activity>
     </application>
 
 </manifest>

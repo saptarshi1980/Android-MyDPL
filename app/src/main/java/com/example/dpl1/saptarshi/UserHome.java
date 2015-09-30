@@ -24,15 +24,12 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener{
         Bundle extras=getIntent().getExtras();
         name=extras.getString("name");
         conNo=extras.getString("conNo");
-        System.out.println("****************** CONSUMER DATA ******************************************");
-        System.out.println("NAME-"+name);
-        System.out.println("PARTY CODE-"+conNo);
-        System.out.println("************************************************************");
-
         iv1=(ImageView)findViewById(R.id.imageView3);
         iv1.setOnClickListener(this);
         iv2=(ImageView)findViewById(R.id.imageView4);
         iv2.setOnClickListener(this);
+        iv3=(ImageView)findViewById(R.id.imageView9);
+        iv3.setOnClickListener(this);
         consumerName=(TextView)findViewById(R.id.textView2);
         consumerName.setText(name);
 
@@ -74,6 +71,13 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener{
         }
         if(v == iv2){
             Intent intent = new Intent(getApplicationContext(),CurrentBill.class);
+            intent.putExtra("conNo",conNo);
+            intent.putExtra("conName",name);
+            startActivity(intent);
+        }
+        if(v == iv3){
+
+            Intent intent = new Intent(getApplicationContext(),TariffView.class);
             intent.putExtra("conNo",conNo);
             intent.putExtra("conName",name);
             startActivity(intent);

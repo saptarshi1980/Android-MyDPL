@@ -65,11 +65,11 @@ public class CurrentBill extends AppCompatActivity {
                 currentReading.setText("Current Reading: " + varCurrReading);
                 mulFactor.setText("Multiplying Factor: " + varMulFactor);
                 meterStatus.setText("Meter Status: " + varMeterStatus);
-                unitPerMonth.setText("Units Consumed/Month: " + varUnitPerMonth);
-                billPerMonth.setText("Bill Amount: Rs" + varBillPerMonth);
+                unitPerMonth.setText("Units Consumed / Month: " + varUnitPerMonth);
+                billPerMonth.setText("Bill Amount / Month: Rs" + varBillPerMonth);
                 dueDate1.setText("1st Due Date: " + varDueDate1);
                 dueDate2.setText("2nd Due Date: "+varDueDate2);
-                System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+
                 System.out.println("Result-"+s+" / Length--"+s.length());
                 System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 

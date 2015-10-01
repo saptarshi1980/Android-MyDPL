@@ -55,6 +55,18 @@
             android:name=".BillHistory"
             android:label="@string/title_activity_bill_history" >
         </activity>
+        <activity
+            android:name=".ChooseUpdate"
+            android:label="@string/title_activity_choose_update" >
+        </activity>
+        <activity
+            android:name=".UpdateMobile"
+            android:label="@string/title_activity_update_mobile" >
+        </activity>
+        <activity
+            android:name=".UpdateEmail"
+            android:label="@string/title_activity_update_email" >
+        </activity>
     </application>
 
 </manifest>

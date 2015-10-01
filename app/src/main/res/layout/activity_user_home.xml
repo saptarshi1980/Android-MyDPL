@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/customborder"
         android:id="@+id/rl"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
@@ -119,6 +119,18 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_marginTop="20.0dip"
+        android:textStyle="bold"
+        android:layout_marginBottom="20.0dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/imageView13"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

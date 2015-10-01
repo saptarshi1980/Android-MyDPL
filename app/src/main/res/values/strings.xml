@@ -13,5 +13,23 @@
     <string name="title_activity_current_bill">CurrentBill</string>
     <string name="title_activity_tariff_view">TariffView</string>
     <string name="title_activity_bill_history">BillHistory</string>
+    <string name="title_activity_drawer_demo">DrawerDemo</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+    <string-array name="navigation_drawer_items_array">
+        <item>Create</item>
+        <item>Read</item>
+        <item>Help</item>
+    </string-array>
+    <string name="title_activity_choose_update">ChooseUpdate</string>
+    <string name="title_activity_update_mobile">UpdateMobile</string>
+    <string name="title_activity_update_email">UpdateEmail</string>
 
 </resources>

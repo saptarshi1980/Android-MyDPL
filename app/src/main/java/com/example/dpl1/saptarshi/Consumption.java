@@ -1,68 +1,127 @@
 package com.example.dpl1.saptarshi;
 
+import android.app.ProgressDialog;
+import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
+import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
+
+import java.util.HashMap;
 
 public class Consumption extends AppCompatActivity {
-    String name,conNo;
+    String name,conNo,firstUnit,secondUnit,thirdUnit,firstMonth,secondMonth,thirdMonth;
+    private static final String REGISTER_URL = "http://thedpl.in/billappws/billinfo/ConPattern";
+    GraphView graph;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consumption);
-        GraphView graph = (GraphView) findViewById(R.id.graph);
+        graph = (GraphView) findViewById(R.id.graph);
         TextView tv=(TextView)findViewById(R.id.textView8);
         Bundle extras=getIntent().getExtras();
         conNo=extras.getString("conNo");
-        tv.setText("Consumption Pattern for Consumer No-"+conNo);
+        conNo=extras.getString("conNo");
+        tv.setText("Consumption Pattern for Consumer No-" + conNo);
         this.setTitle("Consumption Pattern");
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                new DataPoint(1, 600),
-                new DataPoint(2, 500),
-                new DataPoint(3, 700),
-                new DataPoint(4, 500),
-                new DataPoint(5, 900)
-        });
-        StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-        staticLabelsFormatter.setHorizontalLabels(new String[]{"JAN'15", "Feb'15", "March'15", "April'15", "June'15"});
-       // staticLabelsFormatter.setVerticalLabels(new String[] {"low", "middle", "high","ABC","CDE","fgh"});
-       graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
-        //graph.setTitle("Consumption Pattern for Consumer No:########");
-        //graph.getGridLabelRenderer().setVerticalAxisTitleTextSize(30);
-        //graph.getGridLabelRenderer().setVerticalAxisTitle("Units Consumed");
-        //graph.getGridLabelRenderer().setHorizontalAxisTitle("Consumption Month");
-        //graph.getGridLabelRenderer().setGridColor("");
-        //series.setSpacing(2);
-
-        graph.addSeries(series);
+        register();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_consumption, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    private void register() {
+        class GetInformation extends AsyncTask<String, Void, String> {
+            ProgressDialog loading;
+            GetInfo ruc = new GetInfo();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+
+            @Override
+            protected void onPreExecute() {
+                //adapter.clear();
+                super.onPreExecute();
+                loading = ProgressDialog.show(Consumption.this, "Please Wait",null, true, true);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+
+                System.out.println("Response from Post Execute-"+s);
+                extractString(s);
+                BarGraphSeries<DataPoint> series = new BarGraphSeries<DataPoint>(new DataPoint[] {
+                        new DataPoint(1,Integer.parseInt(firstUnit)),
+                        new DataPoint(2, Integer.parseInt(secondUnit)),
+                        new DataPoint(3, Integer.parseInt(thirdUnit)),
+
+                });
+                StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
+                staticLabelsFormatter.setHorizontalLabels(new String[]{firstMonth, secondMonth, thirdMonth});
+                graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+                graph.addSeries(series);
+                series.setSpacing(10);
+                series.setDrawValuesOnTop(true);
+                series.setValuesOnTopColor(Color.GREEN);
+                loading.dismiss();
+                super.onPostExecute(s);
+
+            }
+
+            @Override
+            protected String doInBackground(String... params) {
+
+                HashMap<String, String> data = new HashMap<String,String>();
+                data.put("conNo",conNo);
+                String result = ruc.sendPostRequest(REGISTER_URL,data);
+                System.out.println("PATTERN DATA-"+result);
+                return  result;
+            }
         }
 
-        return super.onOptionsItemSelected(item);
+        GetInformation ru = new GetInformation();
+        ru.execute();
     }
+    public void extractString(String msg){
+
+        int i=0;
+        String[] value_split = msg.split("\\|");
+        for (String string : value_split) {
+
+            System.out.println("Response:"+string);
+
+        }
+        for(i=0;i<value_split.length;i++){
+
+            if(i==0){
+                Consumption.this.firstMonth=value_split[i];
+            }
+            else if(i==1){
+                Consumption.this.firstUnit=value_split[i];
+            }
+            else if(i==2){
+                Consumption.this.secondMonth=value_split[i];
+            }
+
+            else if(i==3){
+                Consumption.this.secondUnit=value_split[i];
+            }
+            else if(i==4){
+                Consumption.this.thirdMonth=value_split[i];
+            }
+            else if(i==5){
+                Consumption.this.thirdUnit=value_split[i];
+            }
+
+        }
+
+
+
+
+
+    }
+
+
+
 }

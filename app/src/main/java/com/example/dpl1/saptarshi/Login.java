@@ -132,35 +132,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 String consumerName;
                 String consumerNo=params[0];
                 String meterNo=params[1];
-
-
                 String result = ruc.sendPostRequest(REGISTER_URL,data);
-
                 System.out.println("Here is my data from consumer authentication-"+result);
-
-
-                /*try{
-                    JSONArray contacts = new JSONArray(result);
-                    for (int i = 0; i < contacts.length(); i++)
-                    {
-                        Consumer consumer=new Consumer();
-                        JSONObject consumerjson = contacts.getJSONObject(i);
-                        String name = consumerjson.getString("name");
-                        consumer.setConsumerName(name);
-                        consumerList.add(consumer);
-                        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-                        System.out.println("Consumer Name-"+name);
-                        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-
-                       // Log.e("Parsed data is", "Title:" + title + "||URL:" + url + "||Description: " + description + " ||ID: " + id);
-
-
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }*/
-
                 return  result;
             }
         }

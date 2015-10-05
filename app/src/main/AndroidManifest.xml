@@ -67,6 +67,14 @@
             android:name=".UpdateEmail"
             android:label="@string/title_activity_update_email" >
         </activity>
+        <activity
+            android:name=".BillCalculate"
+            android:label="@string/title_activity_bill_calculate" >
+        </activity>
+        <activity
+            android:name=".Payment"
+            android:label="@string/title_activity_payment" >
+        </activity>
     </application>
 
 </manifest>

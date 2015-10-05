@@ -51,7 +51,7 @@ public class GetInfo {
                     response = br.readLine();
                 }
                 else {
-                    response="Error Registering";
+                    response="Invalid Input";
                 }
             } catch (Exception e) {
                 e.printStackTrace();

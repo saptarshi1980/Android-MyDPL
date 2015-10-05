@@ -37,6 +37,8 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener{
         iv5.setOnClickListener(this);
         iv6=(ImageView)findViewById(R.id.imageView11);
         iv6.setOnClickListener(this);
+        iv7=(ImageView)findViewById(R.id.imageView10);
+        iv7.setOnClickListener(this);
         consumerName=(TextView)findViewById(R.id.textView2);
         consumerName.setText("WELCOME, "+name);
 
@@ -106,6 +108,14 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener{
 
             Intent intent = new Intent(getApplicationContext(),ChooseUpdate.class);
             intent.putExtra("conNo",conNo);
+            startActivity(intent);
+        }
+
+        if(v == iv7){
+
+            Intent intent = new Intent(getApplicationContext(),BillCalculate.class);
+            intent.putExtra("conNo",conNo);
+            intent.putExtra("name",name);
             startActivity(intent);
         }
 

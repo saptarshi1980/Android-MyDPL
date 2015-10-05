@@ -31,5 +31,7 @@
     <string name="title_activity_choose_update">ChooseUpdate</string>
     <string name="title_activity_update_mobile">UpdateMobile</string>
     <string name="title_activity_update_email">UpdateEmail</string>
+    <string name="title_activity_bill_calculate">BillCalculate</string>
+    <string name="title_activity_payment">Payment</string>
 
 </resources>

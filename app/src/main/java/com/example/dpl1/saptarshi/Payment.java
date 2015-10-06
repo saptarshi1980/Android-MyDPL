@@ -16,6 +16,14 @@ public class Payment extends AppCompatActivity {
         mWebView = (WebView) findViewById(R.id.webView);
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.loadUrl("http://thedpl.in/mydpl");
+
+       /* mWebView.setWebViewClient(new WebViewClient(){
+               public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return false;
+            }
+
+        });*/
     }
 
     @Override

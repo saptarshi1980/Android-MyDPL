@@ -16,6 +16,7 @@
         android:id="@+id/rl">
 
         <TextView
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Enter the Units for which you want  to view the bill amount"
@@ -56,6 +57,7 @@
             android:layout_alignParentEnd="true" />
 
         <TextView
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView15"

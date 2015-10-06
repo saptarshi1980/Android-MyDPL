@@ -1,5 +1,6 @@
 package com.example.dpl1.saptarshi;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -8,9 +9,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
@@ -48,8 +51,16 @@ public class BillCalculate extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         if (v == submit) {
-            registerUser(conNo, unit.getText().toString());
+            try{
+                double value=Double.parseDouble(unit.getText().toString());
+                registerUser(conNo, unit.getText().toString());
+            }catch(NumberFormatException ex){
+                Toast.makeText(getApplicationContext(), "Invalid Input!", Toast.LENGTH_LONG).show();
+            }
+
         }
+        v.requestFocusFromTouch();
+        tv1.requestFocus();
 
     }
 
@@ -87,6 +98,9 @@ public class BillCalculate extends AppCompatActivity implements View.OnClickList
                 tv6.setText("MVCA-Rs."+mvca+"/-");
                 tv7.setText("Total Amount-Rs."+totalBill+"/-");
                 tv8.setText("Govt Duty-Rs."+duty+"/-");
+                InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+
 
        }
 

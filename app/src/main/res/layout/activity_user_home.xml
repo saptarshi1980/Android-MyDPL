@@ -19,7 +19,7 @@
 
     <ImageView
 
-        android:layout_marginTop="10.0dip"
+        android:layout_marginTop="8.0dip"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView3"
@@ -31,7 +31,7 @@
 
     <ImageView
 
-        android:layout_marginTop="10.0dip"
+        android:layout_marginTop="8.0dip"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView4"
@@ -42,7 +42,7 @@
         android:layout_alignParentEnd="true" />
 
     <ImageView
-        android:layout_marginTop="10.0dip"
+        android:layout_marginTop="8.0dip"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView5"
@@ -53,8 +53,7 @@
         android:layout_alignParentStart="true" />
 
         <ImageView
-
-        android:layout_marginTop="10.0dip"
+        android:layout_marginTop="8.0dip"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView7"
@@ -64,19 +63,30 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/imageView5" />
 
-    <ImageView
-        android:layout_marginTop="10.0dip"
+        <ImageView
+            android:layout_marginTop="8.0dip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView14"
+            android:src="@drawable/billpayment"
+            android:clickable="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imageView7" />
+
+        <ImageView
+        android:layout_marginTop="8.0dip"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView8"
         android:src="@drawable/depo"
         android:clickable="true"
-        android:layout_below="@+id/imageView7"
+        android:layout_below="@+id/imageView14"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_marginTop="10.0dip"
+        android:layout_marginTop="8.0dip"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView9"
@@ -87,7 +97,7 @@
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_marginTop="10.0dip"
+        android:layout_marginTop="8.0dip"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView10"
@@ -98,7 +108,7 @@
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_marginTop="10.0dip"
+        android:layout_marginTop="8.0dip"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView11"

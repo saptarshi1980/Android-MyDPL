@@ -18,6 +18,7 @@ public class ModelBillHistory {
     private String dueDate1;
     private String dueDate2;
     private String unit;
+
     public String getConNo() {
         return conNo;
     }
@@ -93,16 +94,14 @@ public class ModelBillHistory {
 
     @Override
     public String toString() {
-        return 	"Party Code='" + partyCode + '\'' +
-                ", Name='" + name + '\'' +
-                ", Bill Month='" + billMonth + '\'' +
-                ", Previous Reading='" + lastRead + '\'' +
-                ", Present Reading='" + currRead + '\'' +
-                ", Units Consumed='" + unit + '\'' +
-                ", Bill Amount='" + billAmount + '\'' +
-                ", 1st Due Date='" + dueDate1 + '\'' +
-                ", 2nd Due Date='" + dueDate2 + '\'' +
-                ", Meter Status='" + meterStatus    ;
+        return 	"Bill Month: " + billMonth +
+                ", Previous Reading: " + lastRead +
+                ", Present Reading: " + currRead +
+                ", Units Consumed: " + unit +
+                ", Bill Amount: Rs " + Math.round(Double.valueOf(billAmount)) +"/-"+
+                ", 1st Due Date: " + dueDate1 +
+                ", 2nd Due Date: " + dueDate2 +
+                ", Meter Status: " + meterStatus    ;
     }
 
 }

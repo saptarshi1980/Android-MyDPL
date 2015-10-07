@@ -37,21 +37,26 @@ public class BillHistory extends AppCompatActivity implements View.OnClickListen
     ArrayList<ModelBillHistory> actorsList=new ArrayList<>();
     ListView listView1;
     ArrayAdapter<Actors> adapter;
+    TextView tv;
 
 
 
 
     //private static final String REGISTER_URL = "http://192.168.30.3/billappws/billinfo/GetFeeds";
     private static final String REGISTER_URL = "http://thedpl.in/billappws/billinfo/BillHistory";
-    String conNo;
+    String conNo,name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bill_history);
         listView1 = (ListView) findViewById(R.id.listView1);
+        tv=(TextView)findViewById(R.id.textView6);
         Bundle extras=getIntent().getExtras();
         conNo=extras.getString("conNo");
+        name=extras.getString("name");
+
         this.setTitle("Bill History-Con No:"+conNo);
+        tv.setText("Consumer Name: "+name);
         registerUser();
     }
 

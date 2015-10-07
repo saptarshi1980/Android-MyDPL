@@ -104,6 +104,7 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener{
 
             Intent intent = new Intent(getApplicationContext(),BillHistory.class);
             intent.putExtra("conNo",conNo);
+            intent.putExtra("name",name);
             startActivity(intent);
         }
         if(v == iv6){

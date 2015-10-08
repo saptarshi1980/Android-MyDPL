@@ -146,7 +146,7 @@ public class BillHistory extends AppCompatActivity implements View.OnClickListen
                         //System.out.println("Data-"+actors.getDescription());
                         System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
-                        Log.e("Parsed data is", "Title:" + title + "||URL:" + url + "||Description: " + description + " ||ID: " + id);
+                        //Log.e("Parsed data is", "Title:" + title + "||URL:" + url + "||Description: " + description + " ||ID: " + id);
 
 
                     }

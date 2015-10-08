@@ -95,13 +95,12 @@ public class ModelBillHistory {
     @Override
     public String toString() {
         return 	"Bill Month: " + billMonth +
-                ", Previous Reading: " + lastRead +
-                ", Present Reading: " + currRead +
-                ", Units Consumed: " + unit +
-                ", Bill Amount: Rs " + Math.round(Double.valueOf(billAmount)) +"/-"+
-                ", 1st Due Date: " + dueDate1 +
-                ", 2nd Due Date: " + dueDate2 +
-                ", Meter Status: " + meterStatus    ;
+                "\nPrevious Reading: " + Math.round(Double.valueOf(lastRead)) +
+                "\nPresent Reading: " + Math.round(Double.valueOf(currRead)) +
+                "\nUnits Consumed: " + Math.round(Double.valueOf(unit)) +
+                "\nBill Amount/Month: Rs " + Math.round(Double.valueOf(billAmount)) +"/-"+
+                "\n1st Due Date: " + dueDate1 +
+                "\n2nd Due Date: " + dueDate2           ;
     }
 
 }

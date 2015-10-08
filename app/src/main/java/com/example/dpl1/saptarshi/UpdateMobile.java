@@ -55,10 +55,7 @@ public void onClick(View v) {
             }
 
 
-            if(et.getText().toString().length()==10){
 
-
-            }
 
 
         }
